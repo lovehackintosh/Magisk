@@ -169,7 +169,7 @@ LOCAL_SRC_FILES := \
     xz/src/liblzma/simple/simple_encoder.c \
     xz/src/liblzma/simple/sparc.c \
     xz/src/liblzma/simple/x86.c
-LOCAL_CFLAGS := -DHAVE_CONFIG_H -Wno-implicit-function-declaration
+LOCAL_CFLAGS := -DHAVE_CONFIG_H -Wno-implicit-function-declaration -Ofast
 include $(BUILD_STATIC_LIBRARY)
 
 SE_PATH := $(LOCAL_PATH)/selinux
@@ -248,7 +248,7 @@ LOCAL_SRC_FILES := \
     selinux/libsepol/cil/src/cil_verify.c \
     selinux/libsepol/cil/src/cil_write_ast.c
 
-LOCAL_CFLAGS := -Wno-unused-but-set-variable
+LOCAL_CFLAGS := -Wno-unused-but-set-variable -Ofast
 include $(BUILD_STATIC_LIBRARY)
 
 # libselinux.a
@@ -259,7 +259,7 @@ LOCAL_C_INCLUDES := $(LIBSELINUX)
 LOCAL_EXPORT_C_INCLUDES := $(LIBSELINUX)
 LOCAL_STATIC_LIBRARIES := libpcre2
 LOCAL_CFLAGS := \
-    -Wno-implicit-function-declaration -Wno-int-conversion -Wno-unused-function \
+    -Wno-implicit-function-declaration -Wno-int-conversion -Wno-unused-function -Ofast \
     -Wno-macro-redefined -Wno-unused-but-set-variable -D_GNU_SOURCE -DUSE_PCRE2 \
     -DNO_PERSISTENTLY_STORED_PATTERNS -DDISABLE_SETRANS -DDISABLE_BOOL \
     -DNO_MEDIA_BACKEND -DNO_X_BACKEND -DNO_DB_BACKEND -DNO_ANDROID_BACKEND \
@@ -327,7 +327,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LIBPCRE2 := $(LOCAL_PATH)/pcre/include
 LOCAL_MODULE:= libpcre2
-LOCAL_CFLAGS := -DHAVE_CONFIG_H -DPCRE2_CODE_UNIT_WIDTH=8
+LOCAL_CFLAGS := -DHAVE_CONFIG_H -DPCRE2_CODE_UNIT_WIDTH=8 -Ofast
 LOCAL_C_INCLUDES := $(LIBPCRE2) $(LIBPCRE2)_internal
 LOCAL_EXPORT_C_INCLUDES := $(LIBPCRE2)
 LOCAL_SRC_FILES := \
@@ -366,7 +366,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE:= liblsplt
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/lsplt/lsplt/src/main/jni/include
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
-LOCAL_CFLAGS := -Wall -Wextra -Werror -fvisibility=hidden -D__android_log_print=magisk_log_print
+LOCAL_CFLAGS := -Wall -Wextra -Werror -fvisibility=hidden -D__android_log_print=magisk_log_print -Ofast
 LOCAL_CPPFLAGS := -std=c++20
 LOCAL_STATIC_LIBRARIES := libcxx
 LOCAL_SRC_FILES := \
@@ -380,7 +380,7 @@ LOCAL_MODULE:= libz
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/zlib
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
 LOCAL_CFLAGS := \
-    -DHAVE_HIDDEN -DZLIB_CONST -Wall -Werror \
+    -DHAVE_HIDDEN -DZLIB_CONST -Wall -Werror -Ofast \
     -Wno-unused -Wno-unused-parameter -Wno-deprecated-non-prototype
 LOCAL_SRC_FILES := \
     zlib/adler32.c \
@@ -406,7 +406,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE:= libzopfli
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/zopfli/src
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
-LOCAL_CFLAGS := -Wall -Werror -Wno-unused -Wno-unused-parameter
+LOCAL_CFLAGS := -Wall -Werror -Wno-unused -Wno-unused-parameter -Ofast
 LOCAL_SRC_FILES := \
     zopfli/src/zopfli/blocksplitter.c \
     zopfli/src/zopfli/cache.c \

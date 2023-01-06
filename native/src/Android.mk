@@ -153,7 +153,7 @@ LOCAL_SRC_FILES := \
     resetprop/resetprop.cpp \
     resetprop/persist.cpp \
 
-LOCAL_CFLAGS := -DAPPLET_STUB_MAIN=resetprop_main
+LOCAL_CFLAGS := -DAPPLET_STUB_MAIN=resetprop_main -Ofast
 include $(BUILD_EXECUTABLE)
 
 endif
